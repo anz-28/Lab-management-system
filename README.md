@@ -1,1 +1,1 @@
-Lab Management
+Lab Management system

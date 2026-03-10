@@ -1,0 +1,36 @@
+*{
+    font-family: "Fragment Mono", monospace;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+nav{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    background-color: rgb(96, 137, 227);
+    height: 10dvh;
+    width:100dvw;
+}
+#logo{
+    height: 100%;
+}
+#linkdiv{
+    display: flex;
+    width: 35%;
+    align-items: center;
+    justify-content:space-around ;
+}
+#linkdiv button{
+    font-size: 20px;
+    color: #fafafa;
+    font-weight:bold;
+    background-color:rgb(96, 137, 227);;
+    border: 0;
+    width: 33%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}

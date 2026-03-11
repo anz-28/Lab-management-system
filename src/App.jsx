@@ -1,9 +1,10 @@
 import{set,ref,push} from 'firebase/database'
 import db from './FirebaseConfig'
 import Home from './Pages/Home/Home'
+import Login from './Pages/Login/Login'
 function App() {
   return (
-    <Home/>
+    <Login/>
   )
 }
 export default App

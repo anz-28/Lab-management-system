@@ -1,0 +1,21 @@
+#home-con{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 35%;
+    flex-direction: column;
+    row-gap: 10%;
+
+    
+}
+#home-img{
+height: 400px;
+width: auto;
+}
+
+#home-button{
+   width: 150px;
+   height: 40px;
+
+}

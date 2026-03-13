@@ -1,4 +1,8 @@
-:root {
+#root {
+  height: 100dvh;
+  width: 100dvw;
+}
+body{
   height: 100dvh;
   width: 100dvw;
 }

@@ -4,8 +4,8 @@ import '../Login/Login.css'
 
 function Login() {
   return (
-    <form >
-        <div id='loginbox'>
+    <div id='loginbox'>
+    <form > 
           <h2 className="login-title">LOGIN</h2>
             <div className='label-div'>
               <label for="name">Name</label>
@@ -22,9 +22,9 @@ function Login() {
             <input type="password" id="password" name="password" placeholder="Your password.."></input>
             </div>
             
-           <button>ENTER</button>
-        </div>
+           <button id='loginbtn'>ENTER</button>
     </form>
+    </div>
   )
 }
 

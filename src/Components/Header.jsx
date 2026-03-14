@@ -6,9 +6,11 @@ function Header() {
     <nav>
       <img id='logo' src={logo}></img>
       <div id = 'linkdiv'>
-        <button>Home</button>
-        <button>Ticket</button>
-        <button>User</button>
+        <ul>
+          <li>Home</li>
+          <li>Ticket</li>
+          <li>User</li>
+        </ul>
       </div>
     </nav>
   )

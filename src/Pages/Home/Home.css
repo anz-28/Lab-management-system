@@ -1,8 +1,9 @@
+
 #home-con{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80%;
+    height: 100%;
     width: 35%;
     flex-direction: column;
     row-gap: 10%;
@@ -10,12 +11,22 @@
     
 }
 #home-img{
-height: 400px;
+height: 60%;
 width: auto;
+overflow: hidden;
 }
 
 #home-button{
-   width: 150px;
-   height: 40px;
+   width: 35%;
+   min-width: 210px;
+   height: 6%;
+  background: linear-gradient(135deg, #8888dd, #aaaaff);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 
 }

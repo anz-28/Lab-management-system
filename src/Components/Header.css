@@ -7,8 +7,6 @@ body{
     background-color: black;
 }
 nav{
-    position: fixed;
-    top: 0;
     z-index: 999;
     display: flex;
     flex-direction:row;
@@ -21,19 +19,19 @@ nav{
     height: 100%;
 }
 #linkdiv{
-    display: flex;
     width: 35%;
-    align-items: center;
-    justify-content:space-around ;
 }
-#linkdiv button{
+#linkdiv ul{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
     font-size: 15px;
     color: #fafafa;
     font-weight:bold;
-    background-color:rgb(96, 137, 227);;
-    border: 0;
-    width: 33%;
-    height: 100%;
     margin: 0;
     padding: 0;
+    list-style: none;
 }

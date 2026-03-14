@@ -1,32 +1,19 @@
-/* Ticket.css */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background-color: #0a0a0a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* ── Form Container ── */
 .ticket-form {
-  height: 80%;
-  width: 60%;
+  height: 91%;
+  width: 80%;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: #0a0a0a;
   row-gap: 6%;
 }
 
-/* ── Field Row (label + input side by side) ── */
-.field-row {
+.field-row { 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +23,6 @@ body {
   width: 100%;
 }
 
-/* ── Labels ── */
 .field-row label {
   color: #ffffff;
   font-size: 14px;
@@ -44,18 +30,19 @@ body {
   letter-spacing: 1.5px;
   text-transform: uppercase;
   white-space: nowrap;
-  /* min-width: 200px; */
+  min-width: 200px;
   width: 25%;
 }
 
-/* ── Select Dropdowns ── */
+
 .field-row select {
-  /* flex: 1; */
+  flex: 1;
   width: 70%;
+  padding: 10px;
   background-color: #5a5a5a;
   border: none;
   border-radius: 8px;
- height: 90%;
+ height: 70%;
   color: #cccccc;
   font-size: 14px;
   appearance: none;
@@ -65,18 +52,16 @@ body {
   background-position: right 16px center;
   cursor: pointer;
   outline: none;
-  transition: background-color 0.2s ease;
 }
-
 .field-row select:focus {
   background-color: #666666;
 }
 
-/* ── Description Block ── */
+
 .description-block {
   display: flex;
   flex-direction: column;
-  position: relative;
+  height: 45%;
 }
 
 .description-label-tab {
@@ -91,7 +76,6 @@ body {
   border-radius: 8px 8px 0 0;
   align-self: flex-start;
   margin-left: 0;
-  position: relative;
   z-index: 1;
 }
 
@@ -103,7 +87,7 @@ body {
   color: #cccccc;
   font-size: 14px;
   resize: none;
-  height: 220px;
+  height: 90%;
   outline: none;
   transition: background-color 0.2s ease;
   width: 100%;
@@ -113,28 +97,20 @@ body {
   background-color: #666666;
 }
 
-/* ── Submit Button ── */
 .submit-btn {
   align-self: center;
   width: 20%;
+  height: 7%;
   background: linear-gradient(135deg, #8888dd, #aaaaff);
-  color: black;
-  font-size: 14px;
-  font-weight: 800;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
   letter-spacing: 3px;
-  text-transform: uppercase;
   border: none;
-  border-radius: 16px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.1s ease;
-  margin-top: 8px;
-}
-
-.submit-btn:hover {
-  opacity: 0.85;
-  transform: translateY(-2px);
 }
 
 .submit-btn:active {
-  transform: translateY(0);
+  transform: translateY(1.3px);
 }

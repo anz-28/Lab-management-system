@@ -1,11 +1,16 @@
-#root {
+#loginbox {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  }
+form {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-form {
+  justify-content: space-around;
+  flex-direction: column;
   height: 60%;
   width: 40%;
   background-color:  #111111;
@@ -13,24 +18,11 @@ form {
   border-radius: 16px;
   }
 
-#loginbox {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-  align-items: center;
-  gap: 9%;
-  position: relative;
-  }
-
 .login-title {
   color: #ffffff;
   font-size: 20px;
-  font-weight: 700;
   letter-spacing: 4px;
   text-transform: uppercase;
-  margin-bottom: 5px;
 }
 
 
@@ -38,7 +30,7 @@ form {
   width: 90%;
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
 }
 
 
@@ -48,8 +40,7 @@ label {
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  white-space: nowrap;
-  min-width: 110px;
+  min-width: 15%;
 }
 
 input[type="text"],
@@ -79,10 +70,10 @@ input::placeholder {
 }
 
 
-button {
-  margin-bottom: 8px;
-  height: 35px;
-  width: 80px;
+#loginbtn{
+  height: 8%;
+  width: 20%;
+  min-width: 150px;
   background: linear-gradient(135deg, #8888dd, #aaaaff);
   color: #ffffff;
   font-size: 13px;
@@ -91,19 +82,10 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.1s ease;
 }
-
-button:hover {
-  opacity: 0.85;
-  transform: translateY(-1px);
+button:active{
+  transform: translate(0,1.3px);
 }
-
-button:active {
-  transform: translateY(0);
-  opacity: 1;
-}
-
 
 
 

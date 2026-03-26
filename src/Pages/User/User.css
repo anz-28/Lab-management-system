@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0a0a0a;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#user-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 50%;
+  width: 30%;
+  background-color: #2e2e2e;
+  border-radius: 16px;
+}
+
+#user-card {
+  width: 90%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 7%;
+}
+
+#user-card p {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+#attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#attendance-table th,
+#attendance-table td {
+  border: 2px solid #ffffff;
+  padding: 14px 20px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+#attendance-table th {
+  background-color: transparent;
+}
+
+#attendance-table td {
+  background-color: transparent;
+}
+
+#logout-btn {
+  height: 10%;
+  width: 20%;
+  background: linear-gradient(135deg, #8888dd, #aaaaff);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}

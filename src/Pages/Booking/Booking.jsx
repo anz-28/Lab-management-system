@@ -1,8 +1,10 @@
 import React from 'react'
 import './Booking.css'
+import Header from '../../Components/Header'
 
 function Booking() {
   return (<>
+  <Header></Header>
     <div className="booking-page">
       <div id="bigdiv">
           <h1>LAB1</h1>

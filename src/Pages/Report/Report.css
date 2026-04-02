@@ -1,50 +1,90 @@
-* {
+.ticket-form * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 .ticket-form {
-  height: 91%;
-  width: 80%;
+  min-height: calc(100vh - 80px);
+  width: 90%;
+  max-width: 800px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  row-gap: 6%;
+  gap: 30px;
+  padding: 24px 20px 24px;
+  margin: 80px auto 0;
+  box-sizing: border-box;
 }
 
-.field-row { 
+@media (max-width: 768px) {
+  .ticket-form {
+    width: 95%;
+    gap: 20px;
+    min-height: calc(100vh - 48px);
+    padding: 20px 14px 16px;
+    margin: 48px auto 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .ticket-form {
+    width: 100%;
+    gap: 15px;
+    min-height: calc(100vh - 42px);
+    padding: 16px 10px 12px;
+    margin: 42px auto 0;
+  }
+}
+
+.report-message {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  margin: 0;
+}
+
+.report-message.error {
+  color: #ff4d4d;
+}
+
+.report-message.success {
+  color: #72e08a;
+}
+
+.ticket-form .field-row { 
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  column-gap: 4%;
-  height: 10%;
+  gap: clamp(10px, 4vw, 30px);
   width: 100%;
 }
 
-.field-row label {
+.ticket-form .field-row label {
   color: #ffffff;
-  font-size: 14px;
+  font-size: clamp(12px, 3vw, 14px);
   font-weight: 800;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   white-space: nowrap;
-  min-width: 200px;
-  width: 25%;
+  min-width: 120px;
+  flex: 0 1 auto;
 }
 
 
-.field-row select {
+.ticket-form .field-row select {
   flex: 1;
-  width: 70%;
-  padding: 10px;
+  min-width: 150px;
+  max-width: 300px;
+  padding: clamp(8px, 2vw, 12px) 10px;
   background-color: #5a5a5a;
   border: none;
   border-radius: 8px;
- height: 70%;
+  height: 45px;
   color: #cccccc;
-  font-size: 14px;
+  font-size: clamp(12px, 3vw, 14px);
   appearance: none;
   -webkit-appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23ffffff' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
@@ -53,64 +93,95 @@
   cursor: pointer;
   outline: none;
 }
-.field-row select:focus {
+.ticket-form .field-row select:focus {
   background-color: #666666;
 }
 
 
-.description-block {
+.ticket-form .description-block {
   display: flex;
   flex-direction: column;
   height: 45%;
 }
 
-.description-label-tab {
+.ticket-form .description-label-tab {
   display: inline-block;
   background-color: #5a5a5a;
   color: #0f0202;
-  font-size: 14px;
+  font-size: clamp(12px, 3vw, 14px);
   font-weight: 800;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  padding: 10px 20px;
+  padding: clamp(8px, 2vw, 10px) clamp(15px, 4vw, 20px);
   border-radius: 8px 8px 0 0;
   align-self: flex-start;
   margin-left: 0;
   z-index: 1;
 }
 
-.description-block textarea {
+.ticket-form .description-block textarea {
   background-color: #5a5a5a;
   border: none;
   border-radius: 0 12px 12px 12px;
-  padding: 20px;
+  padding: clamp(15px, 3vw, 20px);
   color: #cccccc;
-  font-size: 14px;
+  font-size: clamp(12px, 3vw, 14px);
   resize: none;
-  height: 90%;
+  min-height: 150px;
   outline: none;
   transition: background-color 0.2s ease;
   width: 100%;
 }
 
-.description-block textarea:focus {
+.ticket-form .description-block textarea:focus {
   background-color: #666666;
 }
 
-.submit-btn {
+.ticket-form .submit-btn {
   align-self: center;
-  width: 20%;
-  height: 7%;
+  width: 100%;
+  max-width: 200px;
+  height: 45px;
   background: linear-gradient(135deg, #8888dd, #aaaaff);
   color: #ffffff;
-  font-size: 13px;
+  font-size: clamp(12px, 3vw, 14px);
   font-weight: 700;
   letter-spacing: 3px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
-.submit-btn:active {
+.ticket-form .submit-btn:active {
   transform: translateY(1.3px);
+}
+
+.reports-list {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.reports-list h3 {
+  color: #ffffff;
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.report-card {
+  border: 1px solid #4a4a4a;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.report-card p {
+  color: #e2e2e2;
+  margin: 6px 0;
+}
+
+.report-date {
+  font-size: 12px;
+  color: #9a9a9a;
 }

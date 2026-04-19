@@ -8,10 +8,11 @@
   width: 100%;
   box-sizing: border-box;
   margin-top: 80px;
-  padding: 0 20px 12px;
+  padding:70px 20px 12px;
   overflow: hidden;
 }
 #bigdiv{width: 100%;
+
     display: flex;
   align-items: center;
     flex-direction: column;
@@ -67,31 +68,66 @@ height: auto;}
   border: none;
   border-radius: 8px;
   height: 40px;
+  padding: 0 12px;
   color: #cccccc;
   font-size: clamp(12px, 3vw, 14px);
   cursor: pointer;
   flex: 1;
   min-width: 150px;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%23cccccc' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px 8px;
 }
 
 .field-row select:focus {
   background-color: #666666;
-}
-.tenure-input {
-  background-color: #5a5a5a;
   border: none;
-  border-radius: 8px;
-  height: 40px;
-  color: #cccccc;
-  font-size: clamp(12px, 3vw, 14px);
-  width: 80px;
   outline: none;
-  transition: background-color 0.2s ease;
-  text-align: center;
+  box-shadow: none;
 }
 
-.tenure-input:focus {
+.field-row select:focus-visible {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+.tenure-select {
+  background-color: #5a5a5a;
+  border: 1px solid #7a7a7a;
+  border-radius: 8px;
+  height: 40px;
+  padding: 0 12px;
+  color: #cccccc;
+  font-size: clamp(12px, 3vw, 14px);
+  width: 120px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%23cccccc' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px 8px;
+}
+
+.field-row select::-ms-expand,
+.tenure-select::-ms-expand {
+  display: none;
+}
+
+.tenure-select:focus {
   background-color: #666666;
+  border-color: #a6a6ff;
+  box-shadow: 0 0 0 2px rgba(166, 166, 255, 0.25);
+}
+
+.tenure-select:focus-visible {
+  border-color: #a6a6ff;
+  box-shadow: 0 0 0 2px rgba(166, 166, 255, 0.25);
 }
 
 .inline-label {
@@ -136,7 +172,7 @@ height: auto;}
 
 
 .booking-note {
-  color: #4d4c4c;
+  color: #838181;
   font-size: clamp(12px, 3vw, 13px);
   white-space: normal;
   letter-spacing: 0.3px;

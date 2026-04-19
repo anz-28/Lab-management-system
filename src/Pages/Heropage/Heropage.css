@@ -1,0 +1,151 @@
+.main-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #121212;
+}
+
+.main-content-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 80px; /* Header is fixed, take up space */
+  padding: 40px 20px;
+}
+
+.labs-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+}
+
+.no-labs-note {
+  color: #666666;
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+}
+
+.lab-card {
+  background-color: #3b3b3b;
+  border-radius: 12px;
+  width: 250px;
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease;
+}
+
+.lab-card h2 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.lab-time {
+  color: #aaaaaa;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 6px;
+  letter-spacing: 1px;
+}
+
+.stat-tree {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  margin: 35px 0 45px 0;
+  padding-left: 25px;
+}
+
+/* Vertical dotted line */
+.stat-tree::before {
+  content: '';
+  position: absolute;
+  top: 11px;
+  height: calc(100% - 22px);
+  left: 0;
+  border-left: 4px dotted #ffffff;
+}
+
+.stat-node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Horizontal dotted line */
+.stat-node::before {
+  content: '';
+  position: absolute;
+  left: -25px;
+  width: 15px;
+  top: 50%;
+  border-top: 4px dotted #ffffff;
+}
+
+/* Arrow Icon */
+.arrow-icon {
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0; 
+  height: 0; 
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 8px solid #ffffff;
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* We style the buttons with gradients to match the image */
+.card-btn {
+  width: 130px;
+  height: 40px;
+  background: linear-gradient(135deg, #8888dd, #aaaaff);
+  color: #000000;
+  font-size: 14px;
+  font-weight: 800;
+  font-family: inherit;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.card-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.card-btn:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .labs-container {
+    gap: 25px;
+  }
+  .lab-card {
+    width: 220px;
+  }
+}

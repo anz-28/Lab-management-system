@@ -3,52 +3,156 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 80vh;
-  width: 90%;
-  max-width: 600px;
-  background-color: #2e2e2e;
-  border-radius: 16px;
-  padding: 30px 20px;
-  gap: 30px;
+  min-height: calc(100vh - 80px);
+  width: 80%;
+  max-width: none;
+  margin: 80px auto 0;
+  padding: 24px 12px 30px;
+  gap: 22px;
+  box-sizing: border-box;
 }
 
 #user-card {
-  width: 90%;
+  width: 100%;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  gap: clamp(15px, 5vw, 25px);
+  gap: 14px;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
 }
 
-#user-card p {
+.user-card-title {
+  margin: 0 0 4px;
+  color: #ffffff;
+  font-size: clamp(20px, 4vw, 26px);
+  letter-spacing: 0.6px;
+}
+
+.user-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  background: #303030;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.user-row-label {
+  color: #cccccc;
+  font-size: clamp(12px, 3vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.user-row-value {
   color: #ffffff;
   font-size: clamp(13px, 3vw, 15px);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.3px;
 }
 
-#attendance-table {
+.user-bookings-section {
   width: 100%;
-  border-collapse: collapse;
-  font-size: clamp(11px, 2vw, 14px);
+  background: none;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: none;
 }
 
-#attendance-table th,
-#attendance-table td {
-  border: 2px solid #ffffff;
-  padding: clamp(8px, 2vw, 14px) clamp(10px, 3vw, 20px);
-  text-align: center;
+.user-bookings-title {
+  margin: 0 0 14px;
   color: #ffffff;
+  font-size: clamp(18px, 3vw, 22px);
+  letter-spacing: 0.4px;
+}
+
+.user-bookings-list {
+  display: grid;
+  gap: 12px;
+}
+
+.user-booking-card {
+  background: #303030;
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.user-booking-card-content {
+  flex: 1;
+}
+
+.user-booking-card p {
+  margin: 6px 0;
+  color: #e3e3e3;
+  font-size: clamp(12px, 3vw, 14px);
+}
+
+.booking-status {
+  text-transform: uppercase;
   font-weight: 700;
-  letter-spacing: 0.5px;
 }
 
-#attendance-table th {
-  background-color: transparent;
+.booking-status.confirmed {
+  color: #72e08a;
 }
 
-#attendance-table td {
-  background-color: transparent;
+.booking-status.cancelled {
+  color: #ff4d4d;
+}
+
+.booking-date {
+  color: #aaaaaa !important;
+  font-size: 12px !important;
+}
+
+.terminate-booking-btn {
+  height: 40px;
+  min-width: 120px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 5px;
+  background: #ff4d4d;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.terminate-booking-btn:hover {
+  opacity: 0.92;
+}
+
+.terminate-booking-btn:active {
+  transform: scale(0.97);
+}
+
+.terminate-booking-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.empty-bookings {
+  margin: 6px 0 0;
+  color: #aaaaaa;
+}
+
+.user-loading {
+  min-height: calc(100vh - 80px);
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cccccc;
+  font-size: 18px;
 }
 
 #logout-btn {
@@ -63,19 +167,36 @@
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 4px;
 }
 
 @media (max-width: 768px) {
   #user-page {
-    width: 95%;
-    padding: 20px 15px;
+    width: 100%;
+    margin-top: 48px;
+    min-height: calc(100vh - 48px);
+    padding: 16px 10px 20px;
   }
+
+  .user-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .user-booking-card {
+    flex-direction: column;
+  }
+
+  .terminate-booking-btn {
+    width: 100%;
+    max-width: 100px;}
 }
 
 @media (max-width: 480px) {
   #user-page {
-    width: 100%;
-    padding: 15px 10px;
+    margin-top: 42px;
+    min-height: calc(100vh - 42px);
+    padding: 14px 8px 18px;
   }
 }

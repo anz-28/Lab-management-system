@@ -44,14 +44,25 @@ function Login() {
         })
         
         // Navigate to booking page after successful signup
-        navigate('/booking')
+        navigate('/heropage')
       } else {
         // Sign in existing user
-        await login(formData.email, formData.password)
-        navigate('/booking')
+        const loggedInUser = await login(formData.email, formData.password)
+        if (loggedInUser?.email === 'admin@') {
+          navigate('/admin')
+        } else {
+          navigate('/heropage')
+        }
       }
     } catch (err) {
-      setError(err.message)
+      const isInvalidLogin = !isSignup && [
+        'auth/invalid-credential',
+        'auth/user-not-found',
+        'auth/wrong-password',
+        'auth/invalid-email'
+      ].includes(err?.code)
+
+      setError(isInvalidLogin ? 'Invalid credentials' : err.message)
       console.error('Auth error:', err)
     } finally {
       setLoading(false)
@@ -83,7 +94,7 @@ function Login() {
         <div className='label-div'>
           <label htmlFor="email">Email</label>
           <input 
-            type="email" 
+            type={isSignup ? 'email' : 'text'}
             id="email" 
             name="email" 
             placeholder="Your email.."

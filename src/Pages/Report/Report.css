@@ -6,8 +6,8 @@
 
 .ticket-form {
   min-height: calc(100vh - 80px);
-  width: 90%;
-  max-width: 800px;
+  width: 100%;
+  max-width: 80%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -38,10 +38,11 @@
 }
 
 .report-message {
-  width: 100%;
+  margin: 0 0 12px;
+  font-size: clamp(12px, 3vw, 14px);
   text-align: center;
-  font-size: 14px;
-  margin: 0;
+  background: none;
+  width: 100%;
 }
 
 .report-message.error {
@@ -52,10 +53,20 @@
   color: #72e08a;
 }
 
+.report-message.toast-right {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  width: min(90vw, 720px);
+  margin: 0;
+  z-index: 1000;
+}
+
 .ticket-form .field-row { 
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: row;
   gap: clamp(10px, 4vw, 30px);
@@ -69,15 +80,15 @@
   letter-spacing: 1.5px;
   text-transform: uppercase;
   white-space: nowrap;
-  min-width: 120px;
-  flex: 0 1 auto;
+  width: 130px;
+  flex: 0 0 auto;
 }
 
 
 .ticket-form .field-row select {
   flex: 1;
-  min-width: 150px;
-  max-width: 300px;
+  min-width: 200px;
+  max-width: none;
   padding: clamp(8px, 2vw, 12px) 10px;
   background-color: #5a5a5a;
   border: none;
@@ -157,31 +168,3 @@
   transform: translateY(1.3px);
 }
 
-.reports-list {
-  margin-top: 10px;
-  width: 100%;
-}
-
-.reports-list h3 {
-  color: #ffffff;
-  margin-bottom: 12px;
-  font-size: 20px;
-}
-
-.report-card {
-  border: 1px solid #4a4a4a;
-  background-color: #1f1f1f;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 10px;
-}
-
-.report-card p {
-  color: #e2e2e2;
-  margin: 6px 0;
-}
-
-.report-date {
-  font-size: 12px;
-  color: #9a9a9a;
-}

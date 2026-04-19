@@ -3,15 +3,23 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 import app from '../FirebaseConfig'
 
 const AuthContext = createContext()
+const ADMIN_EMAIL = 'admin@'
+const ADMIN_PASSWORD = 'Citkok'
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null)
+  const [firebaseUser, setFirebaseUser] = useState(null)
+  const [adminUser, setAdminUser] = useState(null)
   const [loading, setLoading] = useState(true)
   const auth = getAuth(app)
 
   useEffect(() => {
+    const savedAdminEmail = localStorage.getItem('adminEmail')
+    if (savedAdminEmail === ADMIN_EMAIL) {
+      setAdminUser({ uid: 'local-admin', email: ADMIN_EMAIL, role: 'admin' })
+    }
+
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser)
+      setFirebaseUser(currentUser)
       setLoading(false)
     })
 
@@ -24,14 +32,31 @@ export const AuthProvider = ({ children }) => {
   }
 
   const login = async (email, password) => {
+    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+      const localAdminUser = { uid: 'local-admin', email: ADMIN_EMAIL, role: 'admin' }
+      localStorage.setItem('adminEmail', ADMIN_EMAIL)
+      setAdminUser(localAdminUser)
+      return localAdminUser
+    }
+
     const userCredential = await signInWithEmailAndPassword(auth, email, password)
+    setAdminUser(null)
+    localStorage.removeItem('adminEmail')
     return userCredential.user
   }
 
   const logout = async () => {
-    await signOut(auth)
-    setUser(null)
+    localStorage.removeItem('adminEmail')
+    setAdminUser(null)
+
+    if (auth.currentUser) {
+      await signOut(auth)
+    }
+
+    setFirebaseUser(null)
   }
+
+  const user = firebaseUser || adminUser
 
   const value = {
     user,

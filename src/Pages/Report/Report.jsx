@@ -12,24 +12,44 @@ function Report() {
     systemNumber: '',
     description: ''
   })
-  const [reports, setReports] = useState([])
+  const [labs, setLabs] = useState([])
+  const [systems, setSystems] = useState([])
   const [message, setMessage] = useState('')
   const [isError, setIsError] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  // Fetch user's reports
+  // Fetch labs from database
   useEffect(() => {
-    if (user) {
-      const reportsRef = ref(db, 'reports')
-      onValue(reportsRef, (snapshot) => {
+    const labsRef = ref(db, 'labs')
+    onValue(labsRef, (snapshot) => {
+      if (snapshot.exists()) {
         const data = snapshot.val()
-        if (data) {
-          const userReports = Object.values(data).filter(report => report.userId === user.uid)
-          setReports(userReports)
-        }
-      })
+        const labsArray = Object.entries(data).map(([key, value]) => ({
+          id: key,
+          ...value
+        }))
+        setLabs(labsArray)
+      } else {
+        setLabs([])
+      }
+    })
+  }, [])
+
+  // Update systems when lab is selected
+  useEffect(() => {
+    if (reportData.labNumber) {
+      const selectedLab = labs.find(lab => lab.id === reportData.labNumber)
+      if (selectedLab && selectedLab.total) {
+        const systemArray = Array.from({ length: selectedLab.total }, (_, i) => ({
+          number: (i + 1).toString(),
+          label: `System ${i + 1}`
+        }))
+        setSystems(systemArray)
+      }
+    } else {
+      setSystems([])
     }
-  }, [user])
+  }, [reportData.labNumber, labs])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -84,7 +104,7 @@ function Report() {
     <div className="ticket-form">
       <Header/>
       {message && (
-        <p className={`report-message ${isError ? 'error' : 'success'}`}>
+        <p className={`report-message ${isError ? 'error' : 'success'} toast-right`}>
           {message}
         </p>
       )}
@@ -97,9 +117,10 @@ function Report() {
           value={reportData.labNumber}
           onChange={handleChange}
         >
-          <option value=""></option>
-          <option value="lab1"> Lab 1</option>
-          <option value="lab2"> Lab 2</option>
+          <option value="">Select a Lab</option>
+          {labs.map((lab) => (
+            <option key={lab.id} value={lab.id}>{lab.name} ({lab.id})</option>
+          ))}
         </select>
       </div>
 
@@ -110,10 +131,12 @@ function Report() {
           name="systemNumber"
           value={reportData.systemNumber}
           onChange={handleChange}
+          disabled={!reportData.labNumber}
         >
-          <option value=""></option>
-          <option value="sys1">System 1</option>
-          <option value="sys2">System 2</option>
+          <option value="">Select a System</option>
+          {systems.map((system) => (
+            <option key={system.number} value={system.number}>{system.label}</option>
+          ))}
         </select>
       </div>
 
@@ -134,22 +157,6 @@ function Report() {
       >
         {loading ? 'Submitting...' : 'Submit'}
       </button>
-
-      {/* Display submitted reports */}
-      {reports.length > 0 && (
-        <div className="reports-list">
-          <h3>Your Reports</h3>
-          {reports.map((report, index) => (
-            <div key={index} className="report-card">
-              <p><strong>Lab:</strong> {report.labNumber}</p>
-              <p><strong>System:</strong> {report.systemNumber}</p>
-              <p><strong>Description:</strong> {report.description}</p>
-              <p><strong>Status:</strong> {report.status}</p>
-              <p className="report-date">Submitted: {new Date(report.reportDate).toLocaleString()}</p>
-            </div>
-          ))}
-        </div>
-      )}
     </div>
     </>
   )

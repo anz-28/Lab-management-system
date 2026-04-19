@@ -35,10 +35,10 @@ function Header() {
 
   return (
     <nav>
-      <img id='logo' src={logo} onClick={() => navigate('/booking')} style={{cursor: 'pointer'}}></img>
+      <img id='logo' src={logo} onClick={() => navigate('/heropage')} style={{cursor: 'pointer'}}></img>
       <div id='linkdiv'>
         <ul>
-          <li onClick={() => navigate('/booking')} style={{cursor: 'pointer'}}>Booking</li>
+          <li onClick={() => navigate('/heropage')} style={{cursor: 'pointer'}}>Home</li>
           <li onClick={() => navigate('/report')} style={{cursor: 'pointer'}}>Report</li>
           <li onClick={() => navigate('/user')} style={{cursor: 'pointer'}}>{userName}</li>
           {user && (

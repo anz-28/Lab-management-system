@@ -319,14 +319,14 @@ function Booking() {
       const requestedStart = toMinutes(bookingData.startTime)
       const requestedDuration = toDurationHours(bookingData.tenure)
 
-      // const now = new Date()
-      // const currentMinutes = (now.getHours() * 60) + now.getMinutes()
+      const now = new Date()
+      const currentMinutes = (now.getHours() * 60) + now.getMinutes()
 
-      // if (!Number.isNaN(requestedStart) && requestedStart <= currentMinutes) {
-      //   setMessage('Your selected time has already passed')
-      //   setIsError(true)
-      //   return
-      // }
+      if (!Number.isNaN(requestedStart) && requestedStart <= currentMinutes) {
+        setMessage('Your selected time has already passed')
+        setIsError(true)
+        return
+      }
 
       if (
         Number.isNaN(requestedStart)
